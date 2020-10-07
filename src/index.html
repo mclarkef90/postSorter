@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+        <title>Blog</title>
+    </head>
+
+    <body>
+
+        <div id="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search Topics" name="topic" id="topic-entry">
+                <label for="sort">Sort By:</label>
+                  <select id="sort-entry" name="sort">
+                    <option value="none">None</option>
+                    <option value="id">Id</option>
+                    <option value="reads">Reads</option>
+                    <option value="likes">Likes</option>
+                    <option value="popularity">Popularity</option>
+                  </select>
+                <label for="order">Sort Order:</label>
+                  <select id="sort-order" name="order">
+                    <option value="none">None</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+                <button id="search-button" class="btn btn-link" type="submit">Submit</button>
+              </form>
+        </div><br>
+
+        <div id="feature-container">
+        </div>
+    </body>
+
+      <script type="text/javascript" src="blog_adapter.js"></script>
+      <script type="text/javascript" src="post.js"></script>
+      <script type="text/javascript" src="index.js"></script>
+
+</html>
