@@ -41,4 +41,16 @@ class Post{
     })
   }
 
+  static sortPosts(e){
+    e.preventDefault(e);
+    const sortEntry= document.querySelector("#sort-entry").value
+    const sortOrder= document.querySelector("#sort-order").value
+    console.log(sortEntry)
+    console.log(sortOrder)
+    Post.all.forEach((post) => {
+      post.renderDetails()
+      Post.featureContainer.appendChild(post.main)
+    })
+  }
+
 }

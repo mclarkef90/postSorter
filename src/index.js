@@ -6,5 +6,7 @@
 // });
 
 const searchBar= document.querySelector("#search-container")
+const sort= document.querySelector("#sortForm")
 
 searchBar.addEventListener("submit", BlogAdapter.getPosts)
+sort.addEventListener("submit", Post.sortPosts)
