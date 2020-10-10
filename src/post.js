@@ -33,7 +33,6 @@ class Post{
     `
   }
 
-
   static renderAllPosts(){
     Post.all.forEach((post) => {
       post.renderDetails()
@@ -43,14 +42,48 @@ class Post{
 
   static sortPosts(e){
     e.preventDefault(e);
+
+    Post.featureContainer.textContent=" "
     const sortEntry= document.querySelector("#sort-entry").value
     const sortOrder= document.querySelector("#sort-order").value
     console.log(sortEntry)
     console.log(sortOrder)
-    Post.all.forEach((post) => {
+    let posts = Post.all
+    let sortedPosts = evaluate(posts, sortEntry, sortOrder)
+    sortedPosts.forEach((post) => {
       post.renderDetails()
       Post.featureContainer.appendChild(post.main)
     })
   }
+}
 
+function evaluate(posts, sortEntry, sortOrder){
+
+  function asc( a, b ) {
+    if ( a[sortEntry] < b[sortEntry] ){
+      return -1;
+    }
+    if ( a[sortEntry] > b[sortEntry] ){
+      return 1;
+    }
+    return 0;
+  }
+
+   function desc( a, b ) {
+    if ( a[sortEntry] > b[sortEntry] ){
+      return -1;
+    }
+    if ( a[sortEntry] < b[sortEntry] ){
+      return 1;
+    }
+    return 0;
+  }
+
+  if (sortOrder == "asc") {
+    posts.sort(asc);
+  }
+  else if (sortOrder == "desc") {
+    posts.sort(desc)
+  }
+  return posts
 }
